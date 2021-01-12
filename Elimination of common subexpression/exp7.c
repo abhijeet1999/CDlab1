@@ -12,19 +12,19 @@ int main(){
   //
   printf("\nEnter Total Number of statment:\t");
   scanf("%d", &count);
-  for(i = 0; i < count; i++)
+  for(i = 1; i <= count; i++)
       {
-            printf("\nValue of statment Number [%d]:\t", i + 1);
+            printf("\nValue of statment Number [%d]:\t", i );
             scanf("%s", production[i]);
       }
   //
     
 char temp;
 //printf("\n lm =%c",production[lm][0]);
-for(i=0;i<count;i++){
+for(i=1;i<=count;i++){
   if(strlen(production[i])==3){
     temp=production[i][2];
-    for(k=i+1;k<count;k++){
+    for(k=i+1;k<=count;k++){
       if(production[k][2]==production[i][0]){
         production[k][2]=temp;
 
@@ -43,7 +43,7 @@ int num1,num2,num3;
 char number[4];
 char cho;
 //int nam[4];
-for(i=0;i<count;i++){
+for(i=1;i<=count;i++){
   if(strlen(production[i])>3){
   if(isdigit(production[i][2])&& isdigit(production[i][4])){
     number[0]=production[i][2];
@@ -55,7 +55,7 @@ for(i=0;i<count;i++){
       case '+':num3=num1+num2; break;
       case '*':num3=num1*num2; break;
       case '-':num3=num1-num2; break;
-      case '/': if(num2!=0){printf("\n iiinn");
+      case '/': if(num2!=0){
         num3=num1/num2;} break;
       default: break;
 
@@ -74,10 +74,10 @@ for(i=0;i<count;i++){
 }
 
 }
-for(i=0;i<count;i++){
+for(i=1;i<=count;i++){
   if(strlen(production[i])==3){
     temp=production[i][2];
-    for(k=i+1;k<count;k++){
+    for(k=i+1;k<=count;k++){
       if(production[k][2]==production[i][0]){
         production[k][2]=temp;
 
@@ -93,10 +93,10 @@ for(i=0;i<count;i++){
   
 }
 int value=0,lm;
-      for(i=0;i<count;i++){
+      for(i=1;i<=count;i++){
         //printf("\n flag- %d",flag);
       // printf("\n i[] =%c",production[i][0]);
-        for(j=i+1;j<count;j++){
+        for(j=i+1;j<=count;j++){
          // printf("\n j[] =%c",production[j][0]);
          if(strlen(production[i])>3){
           for(k=2;k<5;k++){
@@ -126,7 +126,7 @@ int value=0,lm;
 j=0;
 int o;
 //printf("\n lm- %d",lm);
- for(i=0;i<count;i++){
+ for(i=1;i<=count;i++){
    if(lm==i && lm!=0){
    if(strlen(production[i])==5){
      //printf("\n j=%d",j);
@@ -138,7 +138,7 @@ int o;
           new[j][2]=t1;
           new[j][3]=production[i][3];
           new[j++][4]=t2;
-          for(k=i;k<count;k++){
+          for(k=i;k<=count;k++){
            // printf("\n j=%d",j);
           // printf("\n pp =%c",production[k][0]);
             if(t1!=production[k][0] && t2!=production[k][0]){
@@ -163,7 +163,7 @@ int o;
 
                }
             }
-            else if((t1==production[k][0] || t2==production[k][0] )&& k==count-1){
+            else if((t1==production[k][0] || t2==production[k][0] )&& k==count){
            // printf("\n pph=%c",production[k][0]);
                  new[j][0]=production[k][0];
                  new[j][1]='=';
@@ -183,57 +183,10 @@ int o;
    i=k;
    // break;
  }
- else if(strlen(production[i])==5 && lm==0){
+ else if( lm==0){
      //printf("\n j=%d",j);
    //strcpy(new[j++],production[i]);
-    t1=production[i][2];
-     t2=production[i][4];
-     o=j;
-     new[j][0]='t' +l;
-          new[j][1]='=';
-          new[j][2]=t1;
-          new[j][3]=production[i][3];
-          new[j++][4]=t2;
-          for(k=i;k<count;k++){
-           // printf("\n j=%d",j);
-           //printf("\n pp =%c",production[k][0]);
-            if(t1!=production[k][0] && t2!=production[k][0]){
-              // printf("\n ppj=%c",production[k][0]);
-               if(strlen(production[k])==5){
-                 if(t1==production[k][2]&& t2==production[k][4] && production[k][3]==production[i][3] && flag==0){
-                  // printf("\n pph=%c",production[k][0]);
-                  // printf("\n h=%c",new[j][0]);
-                  // printf("\n j=%d",j);
-                   new[j][0]=production[k][0];
-                 new[j][1]='=';
-                // j=j-1;
-                 new[j][2]=new[o][0];
-                 //j++;
-                 j++;
-                 }
-                 else{
-                //printf("\n pggh=%c",production[k][0]);
-            strcpy(new[j++],production[k]);
-
-               }
-
-               }
-            }
-            else if((t1==production[k][0] || t2==production[k][0] )&& k==count-1){
-            //printf("\n pph=%c",production[k][0]);
-                 new[j][0]=production[k][0];
-                 new[j][1]='=';
-                 new[j++][2]=new[0][0];
-          }
-            else{
-           //printf("\n prrh=%c",production[k][0]);
-           flag=1;
-
-            strcpy(new[j++],production[k]);
-
-          }
-          }
-   i=k;
+    strcpy(new[j++],production[i]);
    }
  else if(strlen(production[i])==3){
    strcpy(new[j++],production[i]);
@@ -313,7 +266,7 @@ int o;
       case '+':num3=num1+num2; break;
       case '*':num3=num1*num2; break;
       case '-':num3=num1-num2; break;
-      case '/': if(num2!=0){printf("\n iiinn");
+      case '/': if(num2!=0){
         num3=num1/num2;} break;
       default: break;
 
